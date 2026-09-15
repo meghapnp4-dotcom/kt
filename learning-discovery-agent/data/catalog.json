@@ -1,0 +1,1002 @@
+[
+  {
+    "learningId": "LRN-00001",
+    "title": "Machine Learning Fundamentals 1",
+    "description": "Learn Machine Learning concepts and practical implementation.",
+    "learningType": "lesson",
+    "provider": "MS Learn",
+    "skills": [
+      "machine learning",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 2.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.6,
+    "enrollmentCount": 150,
+    "tags": [
+      "machine learning"
+    ]
+  },
+  {
+    "learningId": "LRN-00002",
+    "title": "Python Fundamentals 2",
+    "description": "Learn Python concepts and practical implementation.",
+    "learningType": "concept",
+    "provider": "Skillsoft",
+    "skills": [
+      "python",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 3.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.7,
+    "enrollmentCount": 200,
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "learningId": "LRN-00003",
+    "title": "AWS Fundamentals 3",
+    "description": "Learn AWS concepts and practical implementation.",
+    "learningType": "learning path",
+    "provider": "AWS Builder",
+    "skills": [
+      "aws",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 4.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.8,
+    "enrollmentCount": 250,
+    "tags": [
+      "aws"
+    ]
+  },
+  {
+    "learningId": "LRN-00004",
+    "title": "Data Engineering Fundamentals 4",
+    "description": "Learn Data Engineering concepts and practical implementation.",
+    "learningType": "program",
+    "provider": "Cognizant",
+    "skills": [
+      "data engineering",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 5.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.9,
+    "enrollmentCount": 300,
+    "tags": [
+      "data engineering"
+    ]
+  },
+  {
+    "learningId": "LRN-00005",
+    "title": "DevOps Fundamentals 5",
+    "description": "Learn DevOps concepts and practical implementation.",
+    "learningType": "course",
+    "provider": "MS Learn",
+    "skills": [
+      "devops",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 6.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.0,
+    "enrollmentCount": 350,
+    "tags": [
+      "devops"
+    ]
+  },
+  {
+    "learningId": "LRN-00006",
+    "title": "Generative AI Fundamentals 6",
+    "description": "Learn Generative AI concepts and practical implementation.",
+    "learningType": "lesson",
+    "provider": "Skillsoft",
+    "skills": [
+      "generative ai",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 7.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.1,
+    "enrollmentCount": 400,
+    "tags": [
+      "generative ai"
+    ]
+  },
+  {
+    "learningId": "LRN-00007",
+    "title": "Java Fundamentals 7",
+    "description": "Learn Java concepts and practical implementation.",
+    "learningType": "concept",
+    "provider": "AWS Builder",
+    "skills": [
+      "java",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 8.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.2,
+    "enrollmentCount": 450,
+    "tags": [
+      "java"
+    ]
+  },
+  {
+    "learningId": "LRN-00008",
+    "title": "React Fundamentals 8",
+    "description": "Learn React concepts and practical implementation.",
+    "learningType": "learning path",
+    "provider": "Cognizant",
+    "skills": [
+      "react",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 1.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.3,
+    "enrollmentCount": 500,
+    "tags": [
+      "react"
+    ]
+  },
+  {
+    "learningId": "LRN-00009",
+    "title": "Docker Fundamentals 9",
+    "description": "Learn Docker concepts and practical implementation.",
+    "learningType": "program",
+    "provider": "MS Learn",
+    "skills": [
+      "docker",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 2.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.4,
+    "enrollmentCount": 550,
+    "tags": [
+      "docker"
+    ]
+  },
+  {
+    "learningId": "LRN-00010",
+    "title": "Kubernetes Fundamentals 10",
+    "description": "Learn Kubernetes concepts and practical implementation.",
+    "learningType": "course",
+    "provider": "Skillsoft",
+    "skills": [
+      "kubernetes",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 3.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.5,
+    "enrollmentCount": 600,
+    "tags": [
+      "kubernetes"
+    ]
+  },
+  {
+    "learningId": "LRN-00011",
+    "title": "Machine Learning Fundamentals 11",
+    "description": "Learn Machine Learning concepts and practical implementation.",
+    "learningType": "lesson",
+    "provider": "AWS Builder",
+    "skills": [
+      "machine learning",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 4.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.6,
+    "enrollmentCount": 650,
+    "tags": [
+      "machine learning"
+    ]
+  },
+  {
+    "learningId": "LRN-00012",
+    "title": "Python Fundamentals 12",
+    "description": "Learn Python concepts and practical implementation.",
+    "learningType": "concept",
+    "provider": "Cognizant",
+    "skills": [
+      "python",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 5.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.7,
+    "enrollmentCount": 700,
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "learningId": "LRN-00013",
+    "title": "AWS Fundamentals 13",
+    "description": "Learn AWS concepts and practical implementation.",
+    "learningType": "learning path",
+    "provider": "MS Learn",
+    "skills": [
+      "aws",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 6.5,
+    "prerequisiteNames": [],
+    "publishedStatus": false,
+    "rating": 4.8,
+    "enrollmentCount": 750,
+    "tags": [
+      "aws"
+    ]
+  },
+  {
+    "learningId": "LRN-00014",
+    "title": "Data Engineering Fundamentals 14",
+    "description": "Learn Data Engineering concepts and practical implementation.",
+    "learningType": "program",
+    "provider": "Skillsoft",
+    "skills": [
+      "data engineering",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 7.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.9,
+    "enrollmentCount": 800,
+    "tags": [
+      "data engineering"
+    ]
+  },
+  {
+    "learningId": "LRN-00015",
+    "title": "DevOps Fundamentals 15",
+    "description": "Learn DevOps concepts and practical implementation.",
+    "learningType": "course",
+    "provider": "AWS Builder",
+    "skills": [
+      "devops",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 8.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.5,
+    "enrollmentCount": 850,
+    "tags": [
+      "devops"
+    ]
+  },
+  {
+    "learningId": "LRN-00016",
+    "title": "Generative AI Fundamentals 16",
+    "description": "Learn Generative AI concepts and practical implementation.",
+    "learningType": "lesson",
+    "provider": "Cognizant",
+    "skills": [
+      "generative ai",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 1.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.6,
+    "enrollmentCount": 900,
+    "tags": [
+      "generative ai"
+    ]
+  },
+  {
+    "learningId": "LRN-00017",
+    "title": "Java Fundamentals 17",
+    "description": "Learn Java concepts and practical implementation.",
+    "learningType": "concept",
+    "provider": "MS Learn",
+    "skills": [
+      "java",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 2.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.7,
+    "enrollmentCount": 950,
+    "tags": [
+      "java"
+    ]
+  },
+  {
+    "learningId": "LRN-00018",
+    "title": "React Fundamentals 18",
+    "description": "Learn React concepts and practical implementation.",
+    "learningType": "learning path",
+    "provider": "Skillsoft",
+    "skills": [
+      "react",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 3.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.8,
+    "enrollmentCount": 1000,
+    "tags": [
+      "react"
+    ]
+  },
+  {
+    "learningId": "LRN-00019",
+    "title": "Docker Fundamentals 19",
+    "description": "Learn Docker concepts and practical implementation.",
+    "learningType": "program",
+    "provider": "AWS Builder",
+    "skills": [
+      "docker",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 4.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.9,
+    "enrollmentCount": 1050,
+    "tags": [
+      "docker"
+    ]
+  },
+  {
+    "learningId": "LRN-00020",
+    "title": "Kubernetes Fundamentals 20",
+    "description": "Learn Kubernetes concepts and practical implementation.",
+    "learningType": "course",
+    "provider": "Cognizant",
+    "skills": [
+      "kubernetes",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 5.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.0,
+    "enrollmentCount": 1100,
+    "tags": [
+      "kubernetes"
+    ]
+  },
+  {
+    "learningId": "LRN-00021",
+    "title": "Machine Learning Fundamentals 21",
+    "description": "Learn Machine Learning concepts and practical implementation.",
+    "learningType": "lesson",
+    "provider": "MS Learn",
+    "skills": [
+      "machine learning",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 6.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.1,
+    "enrollmentCount": 1150,
+    "tags": [
+      "machine learning"
+    ]
+  },
+  {
+    "learningId": "LRN-00022",
+    "title": "Python Fundamentals 22",
+    "description": "Learn Python concepts and practical implementation.",
+    "learningType": "concept",
+    "provider": "Skillsoft",
+    "skills": [
+      "python",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 7.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.2,
+    "enrollmentCount": 1200,
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "learningId": "LRN-00023",
+    "title": "AWS Fundamentals 23",
+    "description": "Learn AWS concepts and practical implementation.",
+    "learningType": "learning path",
+    "provider": "AWS Builder",
+    "skills": [
+      "aws",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 8.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.3,
+    "enrollmentCount": 1250,
+    "tags": [
+      "aws"
+    ]
+  },
+  {
+    "learningId": "LRN-00024",
+    "title": "Data Engineering Fundamentals 24",
+    "description": "Learn Data Engineering concepts and practical implementation.",
+    "learningType": "program",
+    "provider": "Cognizant",
+    "skills": [
+      "data engineering",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 1.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.4,
+    "enrollmentCount": 1300,
+    "tags": [
+      "data engineering"
+    ]
+  },
+  {
+    "learningId": "LRN-00025",
+    "title": "DevOps Fundamentals 25",
+    "description": "Learn DevOps concepts and practical implementation.",
+    "learningType": "course",
+    "provider": "MS Learn",
+    "skills": [
+      "devops",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 2.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.5,
+    "enrollmentCount": 1350,
+    "tags": [
+      "devops"
+    ]
+  },
+  {
+    "learningId": "LRN-00026",
+    "title": "Generative AI Fundamentals 26",
+    "description": "Learn Generative AI concepts and practical implementation.",
+    "learningType": "lesson",
+    "provider": "Skillsoft",
+    "skills": [
+      "generative ai",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 3.5,
+    "prerequisiteNames": [],
+    "publishedStatus": false,
+    "rating": 4.6,
+    "enrollmentCount": 1400,
+    "tags": [
+      "generative ai"
+    ]
+  },
+  {
+    "learningId": "LRN-00027",
+    "title": "Java Fundamentals 27",
+    "description": "Learn Java concepts and practical implementation.",
+    "learningType": "concept",
+    "provider": "AWS Builder",
+    "skills": [
+      "java",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 4.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.7,
+    "enrollmentCount": 1450,
+    "tags": [
+      "java"
+    ]
+  },
+  {
+    "learningId": "LRN-00028",
+    "title": "React Fundamentals 28",
+    "description": "Learn React concepts and practical implementation.",
+    "learningType": "learning path",
+    "provider": "Cognizant",
+    "skills": [
+      "react",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 5.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.8,
+    "enrollmentCount": 1500,
+    "tags": [
+      "react"
+    ]
+  },
+  {
+    "learningId": "LRN-00029",
+    "title": "Docker Fundamentals 29",
+    "description": "Learn Docker concepts and practical implementation.",
+    "learningType": "program",
+    "provider": "MS Learn",
+    "skills": [
+      "docker",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 6.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.9,
+    "enrollmentCount": 1550,
+    "tags": [
+      "docker"
+    ]
+  },
+  {
+    "learningId": "LRN-00030",
+    "title": "Kubernetes Fundamentals 30",
+    "description": "Learn Kubernetes concepts and practical implementation.",
+    "learningType": "course",
+    "provider": "Skillsoft",
+    "skills": [
+      "kubernetes",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 7.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.5,
+    "enrollmentCount": 1600,
+    "tags": [
+      "kubernetes"
+    ]
+  },
+  {
+    "learningId": "LRN-00031",
+    "title": "Machine Learning Fundamentals 31",
+    "description": "Learn Machine Learning concepts and practical implementation.",
+    "learningType": "lesson",
+    "provider": "AWS Builder",
+    "skills": [
+      "machine learning",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 8.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.6,
+    "enrollmentCount": 1650,
+    "tags": [
+      "machine learning"
+    ]
+  },
+  {
+    "learningId": "LRN-00032",
+    "title": "Python Fundamentals 32",
+    "description": "Learn Python concepts and practical implementation.",
+    "learningType": "concept",
+    "provider": "Cognizant",
+    "skills": [
+      "python",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 1.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.7,
+    "enrollmentCount": 1700,
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "learningId": "LRN-00033",
+    "title": "AWS Fundamentals 33",
+    "description": "Learn AWS concepts and practical implementation.",
+    "learningType": "learning path",
+    "provider": "MS Learn",
+    "skills": [
+      "aws",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 2.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.8,
+    "enrollmentCount": 1750,
+    "tags": [
+      "aws"
+    ]
+  },
+  {
+    "learningId": "LRN-00034",
+    "title": "Data Engineering Fundamentals 34",
+    "description": "Learn Data Engineering concepts and practical implementation.",
+    "learningType": "program",
+    "provider": "Skillsoft",
+    "skills": [
+      "data engineering",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 3.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.9,
+    "enrollmentCount": 1800,
+    "tags": [
+      "data engineering"
+    ]
+  },
+  {
+    "learningId": "LRN-00035",
+    "title": "DevOps Fundamentals 35",
+    "description": "Learn DevOps concepts and practical implementation.",
+    "learningType": "course",
+    "provider": "AWS Builder",
+    "skills": [
+      "devops",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 4.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.0,
+    "enrollmentCount": 1850,
+    "tags": [
+      "devops"
+    ]
+  },
+  {
+    "learningId": "LRN-00036",
+    "title": "Generative AI Fundamentals 36",
+    "description": "Learn Generative AI concepts and practical implementation.",
+    "learningType": "lesson",
+    "provider": "Cognizant",
+    "skills": [
+      "generative ai",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 5.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.1,
+    "enrollmentCount": 1900,
+    "tags": [
+      "generative ai"
+    ]
+  },
+  {
+    "learningId": "LRN-00037",
+    "title": "Java Fundamentals 37",
+    "description": "Learn Java concepts and practical implementation.",
+    "learningType": "concept",
+    "provider": "MS Learn",
+    "skills": [
+      "java",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 6.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.2,
+    "enrollmentCount": 1950,
+    "tags": [
+      "java"
+    ]
+  },
+  {
+    "learningId": "LRN-00038",
+    "title": "React Fundamentals 38",
+    "description": "Learn React concepts and practical implementation.",
+    "learningType": "learning path",
+    "provider": "Skillsoft",
+    "skills": [
+      "react",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 7.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.3,
+    "enrollmentCount": 2000,
+    "tags": [
+      "react"
+    ]
+  },
+  {
+    "learningId": "LRN-00039",
+    "title": "Docker Fundamentals 39",
+    "description": "Learn Docker concepts and practical implementation.",
+    "learningType": "program",
+    "provider": "AWS Builder",
+    "skills": [
+      "docker",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 8.5,
+    "prerequisiteNames": [],
+    "publishedStatus": false,
+    "rating": 4.4,
+    "enrollmentCount": 2050,
+    "tags": [
+      "docker"
+    ]
+  },
+  {
+    "learningId": "LRN-00040",
+    "title": "Kubernetes Fundamentals 40",
+    "description": "Learn Kubernetes concepts and practical implementation.",
+    "learningType": "course",
+    "provider": "Cognizant",
+    "skills": [
+      "kubernetes",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 1.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.5,
+    "enrollmentCount": 2100,
+    "tags": [
+      "kubernetes"
+    ]
+  },
+  {
+    "learningId": "LRN-00041",
+    "title": "Machine Learning Fundamentals 41",
+    "description": "Learn Machine Learning concepts and practical implementation.",
+    "learningType": "lesson",
+    "provider": "MS Learn",
+    "skills": [
+      "machine learning",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 2.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.6,
+    "enrollmentCount": 2150,
+    "tags": [
+      "machine learning"
+    ]
+  },
+  {
+    "learningId": "LRN-00042",
+    "title": "Python Fundamentals 42",
+    "description": "Learn Python concepts and practical implementation.",
+    "learningType": "concept",
+    "provider": "Skillsoft",
+    "skills": [
+      "python",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 3.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.7,
+    "enrollmentCount": 2200,
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "learningId": "LRN-00043",
+    "title": "AWS Fundamentals 43",
+    "description": "Learn AWS concepts and practical implementation.",
+    "learningType": "learning path",
+    "provider": "AWS Builder",
+    "skills": [
+      "aws",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 4.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.8,
+    "enrollmentCount": 2250,
+    "tags": [
+      "aws"
+    ]
+  },
+  {
+    "learningId": "LRN-00044",
+    "title": "Data Engineering Fundamentals 44",
+    "description": "Learn Data Engineering concepts and practical implementation.",
+    "learningType": "program",
+    "provider": "Cognizant",
+    "skills": [
+      "data engineering",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 5.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.9,
+    "enrollmentCount": 2300,
+    "tags": [
+      "data engineering"
+    ]
+  },
+  {
+    "learningId": "LRN-00045",
+    "title": "DevOps Fundamentals 45",
+    "description": "Learn DevOps concepts and practical implementation.",
+    "learningType": "course",
+    "provider": "MS Learn",
+    "skills": [
+      "devops",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 6.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.5,
+    "enrollmentCount": 2350,
+    "tags": [
+      "devops"
+    ]
+  },
+  {
+    "learningId": "LRN-00046",
+    "title": "Generative AI Fundamentals 46",
+    "description": "Learn Generative AI concepts and practical implementation.",
+    "learningType": "lesson",
+    "provider": "Skillsoft",
+    "skills": [
+      "generative ai",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 7.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.6,
+    "enrollmentCount": 2400,
+    "tags": [
+      "generative ai"
+    ]
+  },
+  {
+    "learningId": "LRN-00047",
+    "title": "Java Fundamentals 47",
+    "description": "Learn Java concepts and practical implementation.",
+    "learningType": "concept",
+    "provider": "AWS Builder",
+    "skills": [
+      "java",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 8.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.7,
+    "enrollmentCount": 2450,
+    "tags": [
+      "java"
+    ]
+  },
+  {
+    "learningId": "LRN-00048",
+    "title": "React Fundamentals 48",
+    "description": "Learn React concepts and practical implementation.",
+    "learningType": "learning path",
+    "provider": "Cognizant",
+    "skills": [
+      "react",
+      "problem solving"
+    ],
+    "level": "beginner",
+    "durationHours": 1.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.8,
+    "enrollmentCount": 2500,
+    "tags": [
+      "react"
+    ]
+  },
+  {
+    "learningId": "LRN-00049",
+    "title": "Docker Fundamentals 49",
+    "description": "Learn Docker concepts and practical implementation.",
+    "learningType": "program",
+    "provider": "MS Learn",
+    "skills": [
+      "docker",
+      "problem solving"
+    ],
+    "level": "intermediate",
+    "durationHours": 2.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 3.9,
+    "enrollmentCount": 2550,
+    "tags": [
+      "docker"
+    ]
+  },
+  {
+    "learningId": "LRN-00050",
+    "title": "Kubernetes Fundamentals 50",
+    "description": "Learn Kubernetes concepts and practical implementation.",
+    "learningType": "course",
+    "provider": "Skillsoft",
+    "skills": [
+      "kubernetes",
+      "problem solving"
+    ],
+    "level": "advanced",
+    "durationHours": 3.5,
+    "prerequisiteNames": [],
+    "publishedStatus": true,
+    "rating": 4.0,
+    "enrollmentCount": 2600,
+    "tags": [
+      "kubernetes"
+    ]
+  }
+]

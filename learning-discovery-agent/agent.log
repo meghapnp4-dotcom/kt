@@ -1,0 +1,1185 @@
+ERROR:root:Agent execution failed
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2589, in make_call
+    response = await client.post(api_base, headers=headers, data=data, stream=True, logging_obj=logging_obj)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/logging_utils.py", line 289, in async_wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 662, in post
+    await _raise_masked_async_error(e, stream)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 442, in _raise_masked_async_error
+    raise MaskedHTTPStatusError(e, message=_body, text=_body) from None
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '404 Not Found' for url 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:streamGenerateContent?alt=sse'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1894, in __anext__
+    await self.fetch_stream()
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1882, in fetch_stream
+    self.completion_stream = await self.make_call(client=litellm.module_level_aclient)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2593, in make_call
+    raise VertexAIError(
+    ...<3 lines>...
+    )
+litellm.llms.vertex_ai.common_utils.VertexAIError: b'{\n  "error": {\n    "code": 404,\n    "message": "models/gemini-1.5-flash-8b is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",\n    "status": "NOT_FOUND"\n  }\n}\n'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/agent.py", line 60, in <module>
+    response = agent(user_input)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 917, in __call__
+    return run_async(
+        lambda: self._invoke_async_and_flush(
+    ...<8 lines>...
+        )
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 45, in run_async
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/opentelemetry/instrumentation/threading/__init__.py", line 161, in wrapped_func
+    return original_func(*func_args, **func_kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 38, in execute
+    return asyncio.run(execute_async())
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 33, in execute_async
+    return await async_func()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 938, in _invoke_async_and_flush
+    return await self.invoke_async(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1020, in invoke_async
+    async for event in events:
+        _ = event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1434, in stream_async
+    async for event in events:
+    ...<8 lines>...
+            yield as_dict
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1578, in _run_loop
+    async for event in self._middleware_registry.invoke(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1733, in terminal
+    async for event in events:
+    ...<17 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1788, in _execute_event_loop_cycle
+    async for event in events:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 302, in event_loop_cycle
+    async for model_event in model_events:
+        if not isinstance(model_event, ModelStopReason):
+            yield model_event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 690, in _handle_model_execution
+    raise e
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 608, in _handle_model_execution
+    async for event in agent._middleware_registry.invoke(
+    ...<5 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 739, in terminal
+    async for event in stream_messages(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 568, in stream_messages
+    async for event in process_stream(chunks, start_time, cancel_signal):
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 459, in process_stream
+    async for chunk in chunks:
+    ...<36 lines>...
+            handle_redact_content(chunk["redactContent"], state)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 364, in stream
+    async for chunk in self._handle_streaming_response(litellm_request):
+        yield chunk
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 604, in _handle_streaming_response
+    async for event in response:
+    ...<16 lines>...
+            break
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2004, in __anext__
+    self._log_stream_failure_and_raise(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2109, in _log_stream_failure_and_raise
+    self._handle_stream_fallback_error(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2191, in _handle_stream_fallback_error
+    raise mapped_exception
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2155, in _handle_stream_fallback_error
+    mapped_exception = exception_type(
+        model=self.model,
+    ...<3 lines>...
+        extra_kwargs={},
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2505, in exception_type
+    raise e  # it's already mapped
+    ^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2338, in exception_type
+    _map_vertex_exception(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        extra_information=extra_information,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 1238, in _map_vertex_exception
+    raise NotFoundError(
+    ...<3 lines>...
+    )
+litellm.exceptions.NotFoundError: litellm.NotFoundError: Vertex_ai_betaException - b'{\n  "error": {\n    "code": 404,\n    "message": "models/gemini-1.5-flash-8b is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",\n    "status": "NOT_FOUND"\n  }\n}\n'
+ERROR:root:Agent execution failed
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2589, in make_call
+    response = await client.post(api_base, headers=headers, data=data, stream=True, logging_obj=logging_obj)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/logging_utils.py", line 289, in async_wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 662, in post
+    await _raise_masked_async_error(e, stream)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 442, in _raise_masked_async_error
+    raise MaskedHTTPStatusError(e, message=_body, text=_body) from None
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '404 Not Found' for url 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:streamGenerateContent?alt=sse'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1894, in __anext__
+    await self.fetch_stream()
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1882, in fetch_stream
+    self.completion_stream = await self.make_call(client=litellm.module_level_aclient)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2593, in make_call
+    raise VertexAIError(
+    ...<3 lines>...
+    )
+litellm.llms.vertex_ai.common_utils.VertexAIError: b'{\n  "error": {\n    "code": 404,\n    "message": "models/gemini-1.5-flash-8b is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",\n    "status": "NOT_FOUND"\n  }\n}\n'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/agent.py", line 60, in <module>
+    response = agent(user_input)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 917, in __call__
+    return run_async(
+        lambda: self._invoke_async_and_flush(
+    ...<8 lines>...
+        )
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 45, in run_async
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/opentelemetry/instrumentation/threading/__init__.py", line 161, in wrapped_func
+    return original_func(*func_args, **func_kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 38, in execute
+    return asyncio.run(execute_async())
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 33, in execute_async
+    return await async_func()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 938, in _invoke_async_and_flush
+    return await self.invoke_async(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1020, in invoke_async
+    async for event in events:
+        _ = event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1434, in stream_async
+    async for event in events:
+    ...<8 lines>...
+            yield as_dict
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1578, in _run_loop
+    async for event in self._middleware_registry.invoke(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1733, in terminal
+    async for event in events:
+    ...<17 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1788, in _execute_event_loop_cycle
+    async for event in events:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 302, in event_loop_cycle
+    async for model_event in model_events:
+        if not isinstance(model_event, ModelStopReason):
+            yield model_event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 690, in _handle_model_execution
+    raise e
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 608, in _handle_model_execution
+    async for event in agent._middleware_registry.invoke(
+    ...<5 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 739, in terminal
+    async for event in stream_messages(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 568, in stream_messages
+    async for event in process_stream(chunks, start_time, cancel_signal):
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 459, in process_stream
+    async for chunk in chunks:
+    ...<36 lines>...
+            handle_redact_content(chunk["redactContent"], state)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 364, in stream
+    async for chunk in self._handle_streaming_response(litellm_request):
+        yield chunk
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 604, in _handle_streaming_response
+    async for event in response:
+    ...<16 lines>...
+            break
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2004, in __anext__
+    self._log_stream_failure_and_raise(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2109, in _log_stream_failure_and_raise
+    self._handle_stream_fallback_error(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2191, in _handle_stream_fallback_error
+    raise mapped_exception
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2155, in _handle_stream_fallback_error
+    mapped_exception = exception_type(
+        model=self.model,
+    ...<3 lines>...
+        extra_kwargs={},
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2505, in exception_type
+    raise e  # it's already mapped
+    ^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2338, in exception_type
+    _map_vertex_exception(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        extra_information=extra_information,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 1238, in _map_vertex_exception
+    raise NotFoundError(
+    ...<3 lines>...
+    )
+litellm.exceptions.NotFoundError: litellm.NotFoundError: Vertex_ai_betaException - b'{\n  "error": {\n    "code": 404,\n    "message": "models/gemini-1.5-flash-8b is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",\n    "status": "NOT_FOUND"\n  }\n}\n'
+ERROR:root:Agent execution failed
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2589, in make_call
+    response = await client.post(api_base, headers=headers, data=data, stream=True, logging_obj=logging_obj)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/logging_utils.py", line 289, in async_wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 662, in post
+    await _raise_masked_async_error(e, stream)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 442, in _raise_masked_async_error
+    raise MaskedHTTPStatusError(e, message=_body, text=_body) from None
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '404 Not Found' for url 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1894, in __anext__
+    await self.fetch_stream()
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1882, in fetch_stream
+    self.completion_stream = await self.make_call(client=litellm.module_level_aclient)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2593, in make_call
+    raise VertexAIError(
+    ...<3 lines>...
+    )
+litellm.llms.vertex_ai.common_utils.VertexAIError: b'{\n  "error": {\n    "code": 404,\n    "message": "models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",\n    "status": "NOT_FOUND"\n  }\n}\n'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/agent.py", line 60, in <module>
+    response = agent(user_input)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 917, in __call__
+    return run_async(
+        lambda: self._invoke_async_and_flush(
+    ...<8 lines>...
+        )
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 45, in run_async
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/opentelemetry/instrumentation/threading/__init__.py", line 161, in wrapped_func
+    return original_func(*func_args, **func_kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 38, in execute
+    return asyncio.run(execute_async())
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 33, in execute_async
+    return await async_func()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 938, in _invoke_async_and_flush
+    return await self.invoke_async(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1020, in invoke_async
+    async for event in events:
+        _ = event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1434, in stream_async
+    async for event in events:
+    ...<8 lines>...
+            yield as_dict
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1578, in _run_loop
+    async for event in self._middleware_registry.invoke(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1733, in terminal
+    async for event in events:
+    ...<17 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1788, in _execute_event_loop_cycle
+    async for event in events:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 302, in event_loop_cycle
+    async for model_event in model_events:
+        if not isinstance(model_event, ModelStopReason):
+            yield model_event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 690, in _handle_model_execution
+    raise e
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 608, in _handle_model_execution
+    async for event in agent._middleware_registry.invoke(
+    ...<5 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 739, in terminal
+    async for event in stream_messages(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 568, in stream_messages
+    async for event in process_stream(chunks, start_time, cancel_signal):
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 459, in process_stream
+    async for chunk in chunks:
+    ...<36 lines>...
+            handle_redact_content(chunk["redactContent"], state)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 364, in stream
+    async for chunk in self._handle_streaming_response(litellm_request):
+        yield chunk
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 604, in _handle_streaming_response
+    async for event in response:
+    ...<16 lines>...
+            break
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2004, in __anext__
+    self._log_stream_failure_and_raise(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2109, in _log_stream_failure_and_raise
+    self._handle_stream_fallback_error(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2191, in _handle_stream_fallback_error
+    raise mapped_exception
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2155, in _handle_stream_fallback_error
+    mapped_exception = exception_type(
+        model=self.model,
+    ...<3 lines>...
+        extra_kwargs={},
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2505, in exception_type
+    raise e  # it's already mapped
+    ^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2338, in exception_type
+    _map_vertex_exception(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        extra_information=extra_information,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 1238, in _map_vertex_exception
+    raise NotFoundError(
+    ...<3 lines>...
+    )
+litellm.exceptions.NotFoundError: litellm.NotFoundError: Vertex_ai_betaException - b'{\n  "error": {\n    "code": 404,\n    "message": "models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",\n    "status": "NOT_FOUND"\n  }\n}\n'
+ERROR:root:Agent execution failed
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2589, in make_call
+    response = await client.post(api_base, headers=headers, data=data, stream=True, logging_obj=logging_obj)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/logging_utils.py", line 289, in async_wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 662, in post
+    await _raise_masked_async_error(e, stream)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 442, in _raise_masked_async_error
+    raise MaskedHTTPStatusError(e, message=_body, text=_body) from None
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '404 Not Found' for url 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1894, in __anext__
+    await self.fetch_stream()
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1882, in fetch_stream
+    self.completion_stream = await self.make_call(client=litellm.module_level_aclient)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2593, in make_call
+    raise VertexAIError(
+    ...<3 lines>...
+    )
+litellm.llms.vertex_ai.common_utils.VertexAIError: b'{\n  "error": {\n    "code": 404,\n    "message": "models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",\n    "status": "NOT_FOUND"\n  }\n}\n'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/agent.py", line 60, in <module>
+    response = agent(user_input)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 917, in __call__
+    return run_async(
+        lambda: self._invoke_async_and_flush(
+    ...<8 lines>...
+        )
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 45, in run_async
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/opentelemetry/instrumentation/threading/__init__.py", line 161, in wrapped_func
+    return original_func(*func_args, **func_kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 38, in execute
+    return asyncio.run(execute_async())
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 33, in execute_async
+    return await async_func()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 938, in _invoke_async_and_flush
+    return await self.invoke_async(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1020, in invoke_async
+    async for event in events:
+        _ = event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1434, in stream_async
+    async for event in events:
+    ...<8 lines>...
+            yield as_dict
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1578, in _run_loop
+    async for event in self._middleware_registry.invoke(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1733, in terminal
+    async for event in events:
+    ...<17 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1788, in _execute_event_loop_cycle
+    async for event in events:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 302, in event_loop_cycle
+    async for model_event in model_events:
+        if not isinstance(model_event, ModelStopReason):
+            yield model_event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 690, in _handle_model_execution
+    raise e
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 608, in _handle_model_execution
+    async for event in agent._middleware_registry.invoke(
+    ...<5 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 739, in terminal
+    async for event in stream_messages(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 568, in stream_messages
+    async for event in process_stream(chunks, start_time, cancel_signal):
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 459, in process_stream
+    async for chunk in chunks:
+    ...<36 lines>...
+            handle_redact_content(chunk["redactContent"], state)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 364, in stream
+    async for chunk in self._handle_streaming_response(litellm_request):
+        yield chunk
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 604, in _handle_streaming_response
+    async for event in response:
+    ...<16 lines>...
+            break
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2004, in __anext__
+    self._log_stream_failure_and_raise(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2109, in _log_stream_failure_and_raise
+    self._handle_stream_fallback_error(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2191, in _handle_stream_fallback_error
+    raise mapped_exception
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2155, in _handle_stream_fallback_error
+    mapped_exception = exception_type(
+        model=self.model,
+    ...<3 lines>...
+        extra_kwargs={},
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2505, in exception_type
+    raise e  # it's already mapped
+    ^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2338, in exception_type
+    _map_vertex_exception(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        extra_information=extra_information,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 1238, in _map_vertex_exception
+    raise NotFoundError(
+    ...<3 lines>...
+    )
+litellm.exceptions.NotFoundError: litellm.NotFoundError: Vertex_ai_betaException - b'{\n  "error": {\n    "code": 404,\n    "message": "models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",\n    "status": "NOT_FOUND"\n  }\n}\n'
+ERROR:root:Agent execution failed
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2589, in make_call
+    response = await client.post(api_base, headers=headers, data=data, stream=True, logging_obj=logging_obj)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/logging_utils.py", line 289, in async_wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 662, in post
+    await _raise_masked_async_error(e, stream)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 442, in _raise_masked_async_error
+    raise MaskedHTTPStatusError(e, message=_body, text=_body) from None
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '404 Not Found' for url 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1894, in __anext__
+    await self.fetch_stream()
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1882, in fetch_stream
+    self.completion_stream = await self.make_call(client=litellm.module_level_aclient)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2593, in make_call
+    raise VertexAIError(
+    ...<3 lines>...
+    )
+litellm.llms.vertex_ai.common_utils.VertexAIError: b'{\n  "error": {\n    "code": 404,\n    "message": "models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",\n    "status": "NOT_FOUND"\n  }\n}\n'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/agent.py", line 60, in <module>
+    response = agent(user_input)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 917, in __call__
+    return run_async(
+        lambda: self._invoke_async_and_flush(
+    ...<8 lines>...
+        )
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 45, in run_async
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/opentelemetry/instrumentation/threading/__init__.py", line 161, in wrapped_func
+    return original_func(*func_args, **func_kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 38, in execute
+    return asyncio.run(execute_async())
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 33, in execute_async
+    return await async_func()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 938, in _invoke_async_and_flush
+    return await self.invoke_async(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1020, in invoke_async
+    async for event in events:
+        _ = event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1434, in stream_async
+    async for event in events:
+    ...<8 lines>...
+            yield as_dict
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1578, in _run_loop
+    async for event in self._middleware_registry.invoke(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1733, in terminal
+    async for event in events:
+    ...<17 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1788, in _execute_event_loop_cycle
+    async for event in events:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 302, in event_loop_cycle
+    async for model_event in model_events:
+        if not isinstance(model_event, ModelStopReason):
+            yield model_event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 690, in _handle_model_execution
+    raise e
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 608, in _handle_model_execution
+    async for event in agent._middleware_registry.invoke(
+    ...<5 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 739, in terminal
+    async for event in stream_messages(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 568, in stream_messages
+    async for event in process_stream(chunks, start_time, cancel_signal):
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 459, in process_stream
+    async for chunk in chunks:
+    ...<36 lines>...
+            handle_redact_content(chunk["redactContent"], state)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 364, in stream
+    async for chunk in self._handle_streaming_response(litellm_request):
+        yield chunk
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 604, in _handle_streaming_response
+    async for event in response:
+    ...<16 lines>...
+            break
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2004, in __anext__
+    self._log_stream_failure_and_raise(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2109, in _log_stream_failure_and_raise
+    self._handle_stream_fallback_error(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2191, in _handle_stream_fallback_error
+    raise mapped_exception
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2155, in _handle_stream_fallback_error
+    mapped_exception = exception_type(
+        model=self.model,
+    ...<3 lines>...
+        extra_kwargs={},
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2505, in exception_type
+    raise e  # it's already mapped
+    ^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2338, in exception_type
+    _map_vertex_exception(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        extra_information=extra_information,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 1238, in _map_vertex_exception
+    raise NotFoundError(
+    ...<3 lines>...
+    )
+litellm.exceptions.NotFoundError: litellm.NotFoundError: Vertex_ai_betaException - b'{\n  "error": {\n    "code": 404,\n    "message": "models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",\n    "status": "NOT_FOUND"\n  }\n}\n'
+ERROR:root:Agent execution failed
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2589, in make_call
+    response = await client.post(api_base, headers=headers, data=data, stream=True, logging_obj=logging_obj)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/logging_utils.py", line 289, in async_wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 662, in post
+    await _raise_masked_async_error(e, stream)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 442, in _raise_masked_async_error
+    raise MaskedHTTPStatusError(e, message=_body, text=_body) from None
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '429 Too Many Requests' for url 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1894, in __anext__
+    await self.fetch_stream()
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1882, in fetch_stream
+    self.completion_stream = await self.make_call(client=litellm.module_level_aclient)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2593, in make_call
+    raise VertexAIError(
+    ...<3 lines>...
+    )
+litellm.llms.vertex_ai.common_utils.VertexAIError: b'{\n  "error": {\n    "code": 429,\n    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 51.207228943s.",\n    "status": "RESOURCE_EXHAUSTED",\n    "details": [\n      {\n        "@type": "type.googleapis.com/google.rpc.Help",\n        "links": [\n          {\n            "description": "Learn more about Gemini API quotas",\n            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.QuotaFailure",\n        "violations": [\n          {\n            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",\n            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",\n            "quotaDimensions": {\n              "model": "gemini-2.5-flash",\n              "location": "global"\n            },\n            "quotaValue": "20"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.RetryInfo",\n        "retryDelay": "51s"\n      }\n    ]\n  }\n}\n'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/agent.py", line 60, in <module>
+    response = agent(user_input)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 917, in __call__
+    return run_async(
+        lambda: self._invoke_async_and_flush(
+    ...<8 lines>...
+        )
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 45, in run_async
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/opentelemetry/instrumentation/threading/__init__.py", line 161, in wrapped_func
+    return original_func(*func_args, **func_kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 38, in execute
+    return asyncio.run(execute_async())
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 33, in execute_async
+    return await async_func()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 938, in _invoke_async_and_flush
+    return await self.invoke_async(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1020, in invoke_async
+    async for event in events:
+        _ = event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1434, in stream_async
+    async for event in events:
+    ...<8 lines>...
+            yield as_dict
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1578, in _run_loop
+    async for event in self._middleware_registry.invoke(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1733, in terminal
+    async for event in events:
+    ...<17 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1788, in _execute_event_loop_cycle
+    async for event in events:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 302, in event_loop_cycle
+    async for model_event in model_events:
+        if not isinstance(model_event, ModelStopReason):
+            yield model_event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 690, in _handle_model_execution
+    raise e
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 608, in _handle_model_execution
+    async for event in agent._middleware_registry.invoke(
+    ...<5 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 739, in terminal
+    async for event in stream_messages(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 568, in stream_messages
+    async for event in process_stream(chunks, start_time, cancel_signal):
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 459, in process_stream
+    async for chunk in chunks:
+    ...<36 lines>...
+            handle_redact_content(chunk["redactContent"], state)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 364, in stream
+    async for chunk in self._handle_streaming_response(litellm_request):
+        yield chunk
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 604, in _handle_streaming_response
+    async for event in response:
+    ...<16 lines>...
+            break
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2004, in __anext__
+    self._log_stream_failure_and_raise(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2109, in _log_stream_failure_and_raise
+    self._handle_stream_fallback_error(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2195, in _handle_stream_fallback_error
+    raise MidStreamFallbackError(
+    ...<6 lines>...
+    )
+litellm.exceptions.MidStreamFallbackError: litellm.MidStreamFallbackError: litellm.RateLimitError: litellm.RateLimitError: vertex_ai_betaException - b'{\n  "error": {\n    "code": 429,\n    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 51.207228943s.",\n    "status": "RESOURCE_EXHAUSTED",\n    "details": [\n      {\n        "@type": "type.googleapis.com/google.rpc.Help",\n        "links": [\n          {\n            "description": "Learn more about Gemini API quotas",\n            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.QuotaFailure",\n        "violations": [\n          {\n            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",\n            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",\n            "quotaDimensions": {\n              "model": "gemini-2.5-flash",\n              "location": "global"\n            },\n            "quotaValue": "20"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.RetryInfo",\n        "retryDelay": "51s"\n      }\n    ]\n  }\n}\n' Original exception: RateLimitError: litellm.RateLimitError: litellm.RateLimitError: vertex_ai_betaException - b'{\n  "error": {\n    "code": 429,\n    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 51.207228943s.",\n    "status": "RESOURCE_EXHAUSTED",\n    "details": [\n      {\n        "@type": "type.googleapis.com/google.rpc.Help",\n        "links": [\n          {\n            "description": "Learn more about Gemini API quotas",\n            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.QuotaFailure",\n        "violations": [\n          {\n            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",\n            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",\n            "quotaDimensions": {\n              "model": "gemini-2.5-flash",\n              "location": "global"\n            },\n            "quotaValue": "20"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.RetryInfo",\n        "retryDelay": "51s"\n      }\n    ]\n  }\n}\n'
+ERROR:root:Agent execution failed
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2589, in make_call
+    response = await client.post(api_base, headers=headers, data=data, stream=True, logging_obj=logging_obj)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/logging_utils.py", line 289, in async_wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 662, in post
+    await _raise_masked_async_error(e, stream)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 442, in _raise_masked_async_error
+    raise MaskedHTTPStatusError(e, message=_body, text=_body) from None
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '429 Too Many Requests' for url 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1894, in __anext__
+    await self.fetch_stream()
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1882, in fetch_stream
+    self.completion_stream = await self.make_call(client=litellm.module_level_aclient)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2593, in make_call
+    raise VertexAIError(
+    ...<3 lines>...
+    )
+litellm.llms.vertex_ai.common_utils.VertexAIError: b'{\n  "error": {\n    "code": 429,\n    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 43.80825545s.",\n    "status": "RESOURCE_EXHAUSTED",\n    "details": [\n      {\n        "@type": "type.googleapis.com/google.rpc.Help",\n        "links": [\n          {\n            "description": "Learn more about Gemini API quotas",\n            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.QuotaFailure",\n        "violations": [\n          {\n            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",\n            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",\n            "quotaDimensions": {\n              "model": "gemini-2.5-flash",\n              "location": "global"\n            },\n            "quotaValue": "20"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.RetryInfo",\n        "retryDelay": "43s"\n      }\n    ]\n  }\n}\n'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/agent.py", line 60, in <module>
+    response = agent(user_input)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 917, in __call__
+    return run_async(
+        lambda: self._invoke_async_and_flush(
+    ...<8 lines>...
+        )
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 45, in run_async
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/opentelemetry/instrumentation/threading/__init__.py", line 161, in wrapped_func
+    return original_func(*func_args, **func_kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 38, in execute
+    return asyncio.run(execute_async())
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 33, in execute_async
+    return await async_func()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 938, in _invoke_async_and_flush
+    return await self.invoke_async(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1020, in invoke_async
+    async for event in events:
+        _ = event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1434, in stream_async
+    async for event in events:
+    ...<8 lines>...
+            yield as_dict
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1578, in _run_loop
+    async for event in self._middleware_registry.invoke(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1733, in terminal
+    async for event in events:
+    ...<17 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1788, in _execute_event_loop_cycle
+    async for event in events:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 302, in event_loop_cycle
+    async for model_event in model_events:
+        if not isinstance(model_event, ModelStopReason):
+            yield model_event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 690, in _handle_model_execution
+    raise e
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 608, in _handle_model_execution
+    async for event in agent._middleware_registry.invoke(
+    ...<5 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 739, in terminal
+    async for event in stream_messages(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 568, in stream_messages
+    async for event in process_stream(chunks, start_time, cancel_signal):
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 459, in process_stream
+    async for chunk in chunks:
+    ...<36 lines>...
+            handle_redact_content(chunk["redactContent"], state)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 364, in stream
+    async for chunk in self._handle_streaming_response(litellm_request):
+        yield chunk
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 604, in _handle_streaming_response
+    async for event in response:
+    ...<16 lines>...
+            break
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2004, in __anext__
+    self._log_stream_failure_and_raise(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2109, in _log_stream_failure_and_raise
+    self._handle_stream_fallback_error(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2195, in _handle_stream_fallback_error
+    raise MidStreamFallbackError(
+    ...<6 lines>...
+    )
+litellm.exceptions.MidStreamFallbackError: litellm.MidStreamFallbackError: litellm.RateLimitError: litellm.RateLimitError: vertex_ai_betaException - b'{\n  "error": {\n    "code": 429,\n    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 43.80825545s.",\n    "status": "RESOURCE_EXHAUSTED",\n    "details": [\n      {\n        "@type": "type.googleapis.com/google.rpc.Help",\n        "links": [\n          {\n            "description": "Learn more about Gemini API quotas",\n            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.QuotaFailure",\n        "violations": [\n          {\n            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",\n            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",\n            "quotaDimensions": {\n              "model": "gemini-2.5-flash",\n              "location": "global"\n            },\n            "quotaValue": "20"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.RetryInfo",\n        "retryDelay": "43s"\n      }\n    ]\n  }\n}\n' Original exception: RateLimitError: litellm.RateLimitError: litellm.RateLimitError: vertex_ai_betaException - b'{\n  "error": {\n    "code": 429,\n    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 43.80825545s.",\n    "status": "RESOURCE_EXHAUSTED",\n    "details": [\n      {\n        "@type": "type.googleapis.com/google.rpc.Help",\n        "links": [\n          {\n            "description": "Learn more about Gemini API quotas",\n            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.QuotaFailure",\n        "violations": [\n          {\n            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",\n            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",\n            "quotaDimensions": {\n              "model": "gemini-2.5-flash",\n              "location": "global"\n            },\n            "quotaValue": "20"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.RetryInfo",\n        "retryDelay": "43s"\n      }\n    ]\n  }\n}\n'
+ERROR:root:Agent execution failed
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2589, in make_call
+    response = await client.post(api_base, headers=headers, data=data, stream=True, logging_obj=logging_obj)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/logging_utils.py", line 289, in async_wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 662, in post
+    await _raise_masked_async_error(e, stream)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/custom_httpx/http_handler.py", line 442, in _raise_masked_async_error
+    raise MaskedHTTPStatusError(e, message=_body, text=_body) from None
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '429 Too Many Requests' for url 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1894, in __anext__
+    await self.fetch_stream()
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 1882, in fetch_stream
+    self.completion_stream = await self.make_call(client=litellm.module_level_aclient)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2593, in make_call
+    raise VertexAIError(
+    ...<3 lines>...
+    )
+litellm.llms.vertex_ai.common_utils.VertexAIError: b'{\n  "error": {\n    "code": 429,\n    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 28.469026509s.",\n    "status": "RESOURCE_EXHAUSTED",\n    "details": [\n      {\n        "@type": "type.googleapis.com/google.rpc.Help",\n        "links": [\n          {\n            "description": "Learn more about Gemini API quotas",\n            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.QuotaFailure",\n        "violations": [\n          {\n            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",\n            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",\n            "quotaDimensions": {\n              "location": "global",\n              "model": "gemini-2.5-flash"\n            },\n            "quotaValue": "20"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.RetryInfo",\n        "retryDelay": "28s"\n      }\n    ]\n  }\n}\n'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/kt/learning-discovery-agent/agent.py", line 60, in <module>
+    response = agent(user_input)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 917, in __call__
+    return run_async(
+        lambda: self._invoke_async_and_flush(
+    ...<8 lines>...
+        )
+    )
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 45, in run_async
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/home/codespace/.python/current/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/opentelemetry/instrumentation/threading/__init__.py", line 161, in wrapped_func
+    return original_func(*func_args, **func_kwargs)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 38, in execute
+    return asyncio.run(execute_async())
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/codespace/.python/current/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_async.py", line 33, in execute_async
+    return await async_func()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 938, in _invoke_async_and_flush
+    return await self.invoke_async(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1020, in invoke_async
+    async for event in events:
+        _ = event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1434, in stream_async
+    async for event in events:
+    ...<8 lines>...
+            yield as_dict
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1578, in _run_loop
+    async for event in self._middleware_registry.invoke(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1733, in terminal
+    async for event in events:
+    ...<17 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/agent/agent.py", line 1788, in _execute_event_loop_cycle
+    async for event in events:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 302, in event_loop_cycle
+    async for model_event in model_events:
+        if not isinstance(model_event, ModelStopReason):
+            yield model_event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 690, in _handle_model_execution
+    raise e
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 608, in _handle_model_execution
+    async for event in agent._middleware_registry.invoke(
+    ...<5 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/_middleware/registry.py", line 167, in invoke
+    async for event in gen:
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/event_loop.py", line 739, in terminal
+    async for event in stream_messages(
+    ...<11 lines>...
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 568, in stream_messages
+    async for event in process_stream(chunks, start_time, cancel_signal):
+        yield event
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/event_loop/streaming.py", line 459, in process_stream
+    async for chunk in chunks:
+    ...<36 lines>...
+            handle_redact_content(chunk["redactContent"], state)
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 364, in stream
+    async for chunk in self._handle_streaming_response(litellm_request):
+        yield chunk
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/strands/models/litellm.py", line 604, in _handle_streaming_response
+    async for event in response:
+    ...<16 lines>...
+            break
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2004, in __anext__
+    self._log_stream_failure_and_raise(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2109, in _log_stream_failure_and_raise
+    self._handle_stream_fallback_error(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspaces/kt/learning-discovery-agent/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/streaming_handler.py", line 2195, in _handle_stream_fallback_error
+    raise MidStreamFallbackError(
+    ...<6 lines>...
+    )
+litellm.exceptions.MidStreamFallbackError: litellm.MidStreamFallbackError: litellm.RateLimitError: litellm.RateLimitError: vertex_ai_betaException - b'{\n  "error": {\n    "code": 429,\n    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 28.469026509s.",\n    "status": "RESOURCE_EXHAUSTED",\n    "details": [\n      {\n        "@type": "type.googleapis.com/google.rpc.Help",\n        "links": [\n          {\n            "description": "Learn more about Gemini API quotas",\n            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.QuotaFailure",\n        "violations": [\n          {\n            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",\n            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",\n            "quotaDimensions": {\n              "location": "global",\n              "model": "gemini-2.5-flash"\n            },\n            "quotaValue": "20"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.RetryInfo",\n        "retryDelay": "28s"\n      }\n    ]\n  }\n}\n' Original exception: RateLimitError: litellm.RateLimitError: litellm.RateLimitError: vertex_ai_betaException - b'{\n  "error": {\n    "code": 429,\n    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 28.469026509s.",\n    "status": "RESOURCE_EXHAUSTED",\n    "details": [\n      {\n        "@type": "type.googleapis.com/google.rpc.Help",\n        "links": [\n          {\n            "description": "Learn more about Gemini API quotas",\n            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.QuotaFailure",\n        "violations": [\n          {\n            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",\n            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",\n            "quotaDimensions": {\n              "location": "global",\n              "model": "gemini-2.5-flash"\n            },\n            "quotaValue": "20"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.RetryInfo",\n        "retryDelay": "28s"\n      }\n    ]\n  }\n}\n'
